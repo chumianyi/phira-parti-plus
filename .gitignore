@@ -1,0 +1,6 @@
+/target
+**/*.rs.bk
+.android
+*.apk
+*.aab
+*.so

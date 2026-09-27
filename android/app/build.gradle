@@ -1,0 +1,30 @@
+plugins { id 'com.android.application' }
+
+android {
+    namespace 'com.chumian.parti_plus'
+    compileSdk 35
+    ndkVersion = "29.0.13113456"
+
+    defaultConfig {
+        applicationId "com.chumian.parti_plus"
+        minSdk 23
+        targetSdk 35
+        versionCode 1
+        versionName "1.0.0"
+        ndk { abiFilters 'arm64-v8a', 'armeabi-v7a', 'x86_64' }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            // 无正式签名，用 debug 签名
+            signingConfig signingConfigs.debug
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+    externalNativeBuild {} // 原生库由 cargo-ndk 预编译放入 jniLibs
+}
+
+dependencies { }
