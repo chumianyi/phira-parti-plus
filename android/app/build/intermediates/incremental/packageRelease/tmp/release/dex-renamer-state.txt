@@ -1,4 +1,4 @@
-#Sun Sep 27 10:21:35 SGT 2026
+#Sun Sep 27 12:15:44 SGT 2026
 base.0=/home/user/parti_plus_src/android/app/build/intermediates/dex/release/mergeDexRelease/classes.dex
 renamed.0=classes.dex
 path.0=classes.dex

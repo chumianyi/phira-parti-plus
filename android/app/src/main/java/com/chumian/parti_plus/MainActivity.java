@@ -179,6 +179,19 @@ public class MainActivity extends Activity {
         System.loadLibrary("phira");
     }
 
+    // ---- Parti+⁺: miniquad/prpr Android 桥（对应 phira/src/lib.rs Java_quad_1native_QuadNative_*）----
+    private static native void initializeEnvironment();
+    private static native void setDataPath(String path);
+    private static native void setTempDir(String path);
+    private static native void setDpi(int dpi);
+    private static native void setChosenFile(String path);
+    private static native void markImport();
+    private static native void markImportRespack();
+    private static native void setInputText(String text);
+    private static native void prprActivityOnPause();
+    private static native void prprActivityOnResume();
+    private static native void prprActivityOnDestroy();
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -189,6 +202,10 @@ public class MainActivity extends Activity {
         setContentView(view);
 
         QuadNative.activityOnCreate(this);
+        initializeEnvironment();
+        setDataPath(getFilesDir().getAbsolutePath());
+        setTempDir(getCacheDir().getAbsolutePath());
+        setDpi((int)(getResources().getDisplayMetrics().density * 160f));
 
         //% MAIN_ACTIVITY_ON_CREATE
     }
@@ -197,6 +214,7 @@ public class MainActivity extends Activity {
     protected void onResume() {
         super.onResume();
         QuadNative.activityOnResume();
+        prprActivityOnResume();
 
         //% MAIN_ACTIVITY_ON_RESUME
     }
@@ -220,19 +238,28 @@ public class MainActivity extends Activity {
         super.onDestroy();
 
         QuadNative.activityOnDestroy();
+        prprActivityOnDestroy();
     }
 
     @Override
     protected void onPause() {
         super.onPause();
         QuadNative.activityOnPause();
+        prprActivityOnPause();
 
         //% MAIN_ACTIVITY_ON_PAUSE
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        //% MAIN_ACTIVITY_ON_ACTIVITY_RESULT
+        if (data != null && data.getData() != null) {
+            try {
+                setChosenFile(data.getData().getPath());
+                markImport();
+            } catch (Exception e) {
+                Log.w("SAPP", "import failed", e);
+            }
+        }
     }
 
     public void setFullScreen(final boolean fullscreen) {

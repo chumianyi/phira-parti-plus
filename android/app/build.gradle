@@ -1,6 +1,11 @@
 plugins { id 'com.android.application' }
 
 android {
+    sourceSets {
+        main {
+            assets.srcDirs += ['../../assets']
+        }
+    }
     namespace 'com.chumian.parti_plus'
     compileSdk 35
     ndkVersion = "29.0.13113456"
