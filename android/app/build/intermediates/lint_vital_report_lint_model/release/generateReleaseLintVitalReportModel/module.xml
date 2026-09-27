@@ -1,0 +1,19 @@
+<lint-module
+    format="1"
+    dir="/home/user/parti_plus_src/android/app"
+    name=":app"
+    type="APP"
+    maven="parti_plus:app:unspecified"
+    agpVersion="8.10.1"
+    buildFolder="build"
+    bootClassPath="/home/user/Android/sdk/platforms/android-35/android.jar:/home/user/Android/sdk/build-tools/35.0.0/core-lambda-stubs.jar"
+    javaSourceLevel="17"
+    compileTarget="android-35"
+    neverShrinking="true">
+  <lintOptions
+      abortOnError="true"
+      absolutePaths="true"
+      checkReleaseBuilds="true"
+      explainIssues="true"/>
+  <variant name="release"/>
+</lint-module>

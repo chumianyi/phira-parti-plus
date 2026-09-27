@@ -176,7 +176,7 @@ public class MainActivity extends Activity {
     private QuadSurface view;
 
     static {
-        System.loadLibrary("phira_main");
+        System.loadLibrary("phira");
     }
 
     @Override

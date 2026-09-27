@@ -1,0 +1,7 @@
+com.chumian.parti_plus.app-pngs-0 /home/user/parti_plus_src/android/app/build/generated/res/pngs/release
+com.chumian.parti_plus.app-resValues-1 /home/user/parti_plus_src/android/app/build/generated/res/resValues/release
+com.chumian.parti_plus.app-packageReleaseResources-2 /home/user/parti_plus_src/android/app/build/intermediates/incremental/release/packageReleaseResources/merged.dir
+com.chumian.parti_plus.app-packageReleaseResources-3 /home/user/parti_plus_src/android/app/build/intermediates/incremental/release/packageReleaseResources/stripped.dir
+com.chumian.parti_plus.app-release-4 /home/user/parti_plus_src/android/app/build/intermediates/merged_res/release/mergeReleaseResources
+com.chumian.parti_plus.app-main-5 /home/user/parti_plus_src/android/app/src/main/res
+com.chumian.parti_plus.app-release-6 /home/user/parti_plus_src/android/app/src/release/res
