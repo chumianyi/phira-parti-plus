@@ -5,8 +5,8 @@ prpr_l10n::tl_file!("common" ttl crate::);
 mod inner;
 
 mod anim;
-mod censor;
 mod builtin;
+mod censor;
 mod charts_view;
 mod client;
 mod data;

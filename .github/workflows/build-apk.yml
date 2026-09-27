@@ -21,7 +21,12 @@ jobs:
           rustup target add --toolchain nightly-2026-01-01 aarch64-linux-android armv7-linux-androideabi x86_64-linux-android
 
       - name: Setup Android SDK + NDK
-        uses: android-actions/setup-android@v3
+        run: |
+          export ANDROID_HOME=${ANDROID_HOME:-/usr/local/lib/android/sdk}
+          yes | sdkmanager --licenses >/dev/null 2>&1 || true
+          sdkmanager "platforms;android-35" "build-tools;35.0.0" "ndk;29.0.13113456" >/dev/null 2>&1 || true
+          echo "ANDROID_HOME=$ANDROID_HOME" >> "$GITHUB_ENV"
+          echo "ANDROID_NDK_HOME=$ANDROID_HOME/ndk/29.0.13113456" >> "$GITHUB_ENV"
 
       - name: Install cargo-ndk
         run: |

@@ -1,6 +1,8 @@
 /target
-**/*.rs.bk
-.android
+android/.gradle/
+android/app/build/
+android/local.properties
+android/app/src/main/jniLibs/
+**/*.so
 *.apk
 *.aab
-*.so
