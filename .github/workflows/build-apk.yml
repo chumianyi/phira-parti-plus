@@ -18,7 +18,7 @@ jobs:
           sh /tmp/rustup-init.sh -y --default-toolchain none --profile minimal
           export PATH=$HOME/.cargo/bin:$PATH
           rustup toolchain install nightly-2026-01-01 --profile minimal
-          rustup target add --toolchain nightly-2026-01-01 aarch64-linux-android armv7-linux-androideabi x86_64-linux-android
+          rustup target add --toolchain nightly-2026-01-01 aarch64-linux-android armv7-linux-androideabi
 
       - name: Setup Android SDK + NDK
         run: |
@@ -38,7 +38,7 @@ jobs:
           export PATH=$HOME/.cargo/bin:$PATH
           export ANDROID_NDK_HOME=$ANDROID_NDK_ROOT
           cd $GITHUB_WORKSPACE
-          cargo ndk -t arm64-v8a -t armeabi-v7a -t x86_64 \
+          cargo ndk -t arm64-v8a -t armeabi-v7a \
             -o android/app/src/main/jniLibs build --release -p phira-main
 
       - name: Setup Java 17 + Gradle
